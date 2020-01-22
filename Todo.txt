@@ -1,0 +1,3 @@
+get the js run automatically on document load 
+test different between let var and const in JavaScript 
+and make sure you are working with Ecmascript6
