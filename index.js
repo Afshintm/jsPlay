@@ -35,6 +35,7 @@ console.log(c);
 //   }
 //   return d;
 // }
+
 // var d = m();
 // d();
 // d();
@@ -59,3 +60,49 @@ console.log(c);
 //foo();
 //function foo() {}
 //var foo = function foo() {};
+
+// function wrap(execute) {
+//   var promise = new Promise(function (resolve, reject) {
+//     try {
+//       resolve(execute());
+//     } catch (error) {
+//       reject(null);
+//     }
+//   });
+//   promise
+//     .then(function (e) {
+//       console.log(e);
+//     })
+//     .catch((reason) => {
+//       console.log(reason);
+//     });
+// }
+function wrap(execute) {
+  var promise = new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      try {
+        var r = execute();
+        resolve(r);
+      } catch (error) {
+        reject(null);
+      }
+    }, 100);
+  });
+  return promise
+    .then(function (e) {
+      console.log(e);
+    })
+    .catch((reason) => {
+      console.log(reason);
+    });
+}
+var errorExec = wrap(function () {
+  throw new Error("Error");
+});
+
+// var resultExec = wrap(function () {
+//   return "Result";
+// });
+
+//console.log(errorExec && errorExec()); // Should output null
+//console.log(errorExec && resultExec()); // Should output 'Result';
