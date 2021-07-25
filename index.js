@@ -1,7 +1,7 @@
-// console.log(global);
+console.log(globalThis); // globalThis will be known in both Nodejs and browser
 
 // var pressButton = document.getElementById("btnPress");
-// console.log(btn);
+// console.log(pressButton);
 // pressButton.addEventListener(
 //   "click",
 //   function (event) {
@@ -10,23 +10,23 @@
 //   false
 // );
 
-sayHello();
+sayHello(); // calls the function.
 var sayHello = function () {
   console.log("Hello");
 };
-sayHello();
+sayHello(); //calls above function variable
 function sayHello() {
   console.log("Hello again");
 }
 sayHello();
 
-// const add = {
-//   str: "street 1",
-//   city: "sydney",
-// };
-// const { str: s, city: c } = add;
-// console.log(s);
-// console.log(c);
+const add = {
+  str: "street 1",
+  city: "sydney",
+};
+const { str: s, city: c } = add;
+console.log(s);
+console.log(c);
 
 // function m() {
 //   var v = 0;
